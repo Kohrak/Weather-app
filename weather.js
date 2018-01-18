@@ -17,5 +17,11 @@ function getWeather(){
 getWeather();
 
 function setIcon(currentWeather){
+  var element = document.getElementById("weather")
   console.log(currentWeather)
+  switch(currentWeather.toLowerCase()){
+    case "rain":
+      element.innerHTML = "Rain";
+      break;
+  }
 }
