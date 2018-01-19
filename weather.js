@@ -14,8 +14,6 @@ function getWeather(){
   });
 }
 
-//getWeather();
-
 function setIcon(id, description){
   var element = document.getElementById("weather")
   console.log(id)
@@ -49,4 +47,4 @@ function setIcon(id, description){
   }
 }
 
-setIcon(500, "");
+getWeather();
