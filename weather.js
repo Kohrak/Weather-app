@@ -37,9 +37,9 @@ function setIcon(id, description){
       break;
     case "8":
       if (id == 800){
-        element.innerHTML = '<i class="wi wi-day-sunny"></i> <i class="wi wi-night-clear"></i>' + description;
+        element.innerHTML = '<i class="wi wi-day-sunny"></i> ' + description + ' <i class="wi wi-night-clear"></i>' ;
       } else {
-        element.innerHTML = '<i class="wi wi-cloudy"></i>' + description;
+        element.innerHTML = '<i class="wi wi-cloudy"></i> ' + description;
       }
       break;
     default:
