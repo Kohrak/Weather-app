@@ -9,19 +9,41 @@ function getWeather(){
     xhr.send();
     xhr.onload = function handleRequest() {
       var weatherData = JSON.parse(xhr.responseText);
-      setIcon(weatherData.weather[0].main);
+      setIcon(weatherData.weather[0].id, weatherData.weather[0].description);
     }
   });
 }
 
 getWeather();
 
-function setIcon(currentWeather){
+function setIcon(id, description){
   var element = document.getElementById("weather")
-  console.log(currentWeather)
-  switch(currentWeather.toLowerCase()){
-    case "rain":
-      element.innerHTML = "Rain";
+  element.innerHTML = String(id)[0] + " " + description;
+  switch(String(id)[0]){
+    case "2":
+    //Thunderstorm
+      element.innerHTML = '<i class="wi wi-thunderstorm"></i> ' + description;
       break;
+    case "3":
+    //Drizzle
+      element.innerHTML = '<i class="wi wi-showers"></i> ' + description;
+      break;
+    case "5":
+    //Rain
+      element.innerHTML = '<i class="wi wi-rain"></i> ' + description;
+      break;
+    case "6":
+    //Snow
+      element.innerHTML = '<i class="wi wi-snow"></i> ' + description;
+      break;
+    case "8":
+      if (id == 800){
+        element.innerHTML = '<i class="wi wi-day-sunny"></i> <i class="wi wi-night-clear"></i>' + description;
+      } else {
+        element.innerHTML = '<i class="wi wi-cloudy"></i>' + description;
+      }
+      break;
+    default:
+      element.innerHTML = description;
   }
-}
+  }
