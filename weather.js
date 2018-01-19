@@ -14,11 +14,12 @@ function getWeather(){
   });
 }
 
-getWeather();
+//getWeather();
 
 function setIcon(id, description){
   var element = document.getElementById("weather")
-  element.innerHTML = String(id)[0] + " " + description;
+  console.log(id)
+  console.log(description)
   switch(String(id)[0]){
     case "2":
     //Thunderstorm
@@ -46,4 +47,6 @@ function setIcon(id, description){
     default:
       element.innerHTML = description;
   }
-  }
+}
+
+setIcon(500, "");
