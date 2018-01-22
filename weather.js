@@ -10,6 +10,7 @@ function getWeather(){
     xhr.onload = function handleRequest() {
       var weatherData = JSON.parse(xhr.responseText);
       setIcon(weatherData.weather[0].id, weatherData.weather[0].description);
+      setTemp(weatherData.main.temp);
     }
   });
 }
@@ -45,6 +46,10 @@ function setIcon(id, description){
     default:
       element.innerHTML = description;
   }
+}
+
+function setTemp(temperature){
+  document.getElementById("temp").innerHTML = temperature;
 }
 
 getWeather();
