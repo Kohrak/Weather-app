@@ -11,6 +11,7 @@ function getWeather(unit){
       var weatherData = JSON.parse(xhr.responseText);
       setIcon(weatherData.weather[0].id, weatherData.weather[0].description);
       setTemp(weatherData.main.temp, unit);
+      document.getElementById("city-name").innerHTML = weatherData.name;
     }
   });
 }
