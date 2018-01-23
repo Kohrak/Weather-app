@@ -1,16 +1,16 @@
-
-function getWeather(unit){
+var globalTemp = [0, "z"];
+function getWeather(){
   navigator.geolocation.getCurrentPosition(function handlePosition(position){
     var lat = position.coords.latitude
     var lon = position.coords.longitude
-    var url = "http://api.openweathermap.org/data/2.5/weather?APPID=2df87e789845393d6e88674f59d36941&lat=" + lat + '&lon=' + lon + "&units=" + unit;
+    var url = "http://api.openweathermap.org/data/2.5/weather?APPID=2df87e789845393d6e88674f59d36941&lat=" + lat + '&lon=' + lon + "&units=metric";
     var xhr = new XMLHttpRequest();
     xhr.open("GET", url);
     xhr.send();
     xhr.onload = function handleRequest() {
       var weatherData = JSON.parse(xhr.responseText);
       setIcon(weatherData.weather[0].id, weatherData.weather[0].description);
-      setTemp(weatherData.main.temp, unit);
+      setTemp(weatherData.main.temp);
       document.getElementById("city-name").innerHTML = weatherData.name;
     }
   });
@@ -18,8 +18,6 @@ function getWeather(unit){
 
 function setIcon(id, description){
   var element = document.getElementById("weather")
-  console.log(id)
-  console.log(description)
   switch(String(id)[0]){
     case "2":
     //Thunderstorm
@@ -49,16 +47,28 @@ function setIcon(id, description){
   }
 }
 
-function setTemp(temperature, unit){
-switch (unit){
-  case "metric":
-    var units = "C";
-    break;
-  case 'imperial':
-    var units = "F";
-    break;
-  }
-  document.getElementById("temp").innerHTML = temperature + " " + units;
+function setTemp(temperature){
+  globalTemp[0] = temperature;
+  globalTemp[1] = "C";
+  document.getElementById("temp").innerHTML = temperature + " °C";
 }
 
-getWeather('metric');
+function changeTemp(){
+  var element = document.getElementById("temp")
+  switch (globalTemp[1]){
+    case "C":
+    var val = globalTemp[0] * 1.8 + 32
+    globalTemp[0] = val
+    globalTemp[1] = "F"
+    element.innerHTML = val + " °F"
+    break;
+    case "F":
+    var val = (globalTemp[0] - 32) / 1.8
+    globalTemp[0] = val
+    globalTemp[1] =  "C"
+    element.innerHTML = val + " °C"
+    break;
+  }
+}
+
+getWeather();
