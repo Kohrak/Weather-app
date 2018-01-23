@@ -48,6 +48,7 @@ function setIcon(id, description){
 }
 
 function setTemp(temperature){
+  temperature = Math.round(temperature * 100) / 100
   globalTemp[0] = temperature;
   globalTemp[1] = "C";
   document.getElementById("temp").innerHTML = temperature + " °C";
@@ -58,12 +59,14 @@ function changeTemp(){
   switch (globalTemp[1]){
     case "C":
     var val = globalTemp[0] * 1.8 + 32
+    val = Math.round(val * 100) / 100
     globalTemp[0] = val
     globalTemp[1] = "F"
     element.innerHTML = val + " °F"
     break;
     case "F":
     var val = (globalTemp[0] - 32) / 1.8
+    val = Math.round(val * 100) / 100
     globalTemp[0] = val
     globalTemp[1] =  "C"
     element.innerHTML = val + " °C"
