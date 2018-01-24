@@ -1,10 +1,12 @@
 
-#padded {
-  padding-top: 50px;
+.wbox {
+  border: 3px solid white;
+  width: 50%;
+  background-color: #29292b;
 }
 
 body {
-  background-color: #29292b;
+  background-color: black;
 }
 
 .wtext {
