@@ -17,10 +17,10 @@
     <!-- Font awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-    <link rel="stylesheet" type="text/css" href="css/weather-icons.min.css">
-    <link rel="stylesheet" type="text/css" href="style.css">
     <!--JS and CSS files-->
     <script  src="weather.js"></script>
+    <link rel="stylesheet" type="text/css" href="CSS/weather-icons.min.css">
+    <link rel="stylesheet" type="text/css" href="CSS/style.css">
     <!-- <link rel="stylesheet" type="text/css" href="mystyle.css"> -->
 
 </head>
@@ -30,20 +30,23 @@
 <body>
   <nav class="navbar navbar-inverse">
     <div class="navbar-header">
-      <a class="navbar-brand" href="#">Weather App</a>
+      <a class="navbar-brand em-text" href="#">Weather App</a>
     </div>
   </nav>
-
-  <div class="container-fluid">
-    <div class="padded">
-      <h1 class="text-center text-primary" id="city-name">City Name</h1>
-      <h1 class="text-center" id="weather">Current Weather</h1>
-      <div row>
-        <h2 class="text-center" id="temp">Current Temperature</h2>
-        <button class="btn btn-primary" onclick="changeTemp()">°C/°F</button>
+    <div class="container-fluid">
+      <div class="padded">
+        <h1 class="text-center wtext" id="weather">Current Weather</h1>
+        <div class="row">
+          <div class="col-md-2 col-md-offset-5">
+            <h2 class="text-center wtext" id="temp">Current Temperature</h2>
+          </div>
+          <div class="col-md-1">
+            <button class="btn btn-primary" onclick="changeTemp()">°C/°F</button>
+          </div>
+        </div>
+        <h2 class="text-center text-primary" id="city-name">City Name</h1>
+      <div>
+        <p class="text-center wtext">By Kohrak</p>
       </div>
     </div>
-      <p class="text-center">By Kohrak</p>
-  </div>
-
 </body>
