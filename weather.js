@@ -9,6 +9,7 @@ function getWeather(){
     xhr.send();
     xhr.onload = function handleRequest() {
       var weatherData = JSON.parse(xhr.responseText);
+      removeLoading();
       setIcon(weatherData.weather[0].id, weatherData.weather[0].description);
       setTemp(weatherData.main.temp);
       document.getElementById("city-name").innerHTML = weatherData.name;
@@ -75,3 +76,4 @@ function changeTemp(){
 }
 
 getWeather();
+test();
