@@ -3,22 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <title>Weather App By Kohrak</title>
-  <!-- Bootstrap -->
-
+    <!-- Bootstrap -->
     <link rel="stylesheet" type="text/css" href="CSS/bootstrap.css">
-
     <!-- Font awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
-    <!--JS and CSS files-->
-
+    <!--custom CSS files-->
     <link rel="stylesheet" type="text/css" href="CSS/weather-icons.min.css">
     <link rel="stylesheet" type="text/css" href="CSS/style.css">
-    <!-- <link rel="stylesheet" type="text/css" href="mystyle.css"> -->
-
 </head>
-
-
 
 <body>
   <nav class="navbar navbar-inverse">
@@ -28,15 +20,18 @@
   </nav>
     <div class="container-fluid">
       <div class="wbox text-center center-block" id="weatherBlock">
-        <h2 class="text-primary" id="loadmsg">Please allow location to continue</h2>
-        <!--<h1 class="wtext" id="weather">Current Weather</h1>
+        <h2 class="text-primary" id="loadmsg">Please allow location access to continue</h2>
+        <!--Elements that will be added with JS
+        <h1 class="wtext" id="weather">Current Weather</h1>
         <h2 class="wtext" id="temp">Current Temperature</h2>
         <a class="btn btn-primary" onclick="changeTemp()">°C/°F</a>
-        <h3 class="text-primary" id="city-name">City Name</h3> !-->
+        <h3 class="text-primary" id="city-name">City Name</h3>
+        !-->
     </div>
+      <p class="wtext text-center">By Kohrak</p>
   </div>
-    <p class="wtext text-center">By Kohrak</p>
 </body>
 
+<!--JS files-->
 <script  src="js/dom.js"></script>
 <script  src="js/weather.js"></script>
