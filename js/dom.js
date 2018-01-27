@@ -1,7 +1,3 @@
-function test(){
-  console.log("it works!")
-}
-
 function removeElement(idParent, id){
   var box = document.getElementById(idParent);
   var element = document.getElementById(id);

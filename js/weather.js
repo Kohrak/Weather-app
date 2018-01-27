@@ -1,4 +1,6 @@
+//record temperature value and scale
 var globalTemp = [0, "z"];
+//main function gets location and makes the api call with that info
 function getWeather(){
   navigator.geolocation.getCurrentPosition(function handlePosition(position){
     var lat = position.coords.latitude
@@ -17,7 +19,7 @@ function getWeather(){
     }
   });
 }
-
+//sets the weather description and Icon to the html
 function setIcon(id, description){
   var element = document.getElementById("weather")
   switch(String(id)[0]){
@@ -48,7 +50,8 @@ function setIcon(id, description){
       element.innerHTML = description;
   }
 }
-
+//Rounds the temperature value from api call to 2 decimals
+//Sets the value to display on the html
 function setTemp(temperature){
   temperature = Math.round(temperature * 100) / 100
   globalTemp[0] = temperature;
@@ -56,6 +59,7 @@ function setTemp(temperature){
   document.getElementById("temp").innerHTML = temperature + " °C";
 }
 
+//Converts between °C and °F
 function changeTemp(){
   var element = document.getElementById("temp")
   switch (globalTemp[1]){
@@ -77,4 +81,3 @@ function changeTemp(){
 }
 
 getWeather();
-test();
